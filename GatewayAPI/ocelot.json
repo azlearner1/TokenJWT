@@ -1,0 +1,41 @@
+{
+  "Routes": [
+    {
+      "DownStreamPathTemplate": "/api/Login",
+      "DownStreamScheme": "https",
+      "DownStreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44316"
+        }
+      ],
+      "UpstreamPathTemplate": "/Login",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownStreamPathTemplate": "/api/Login",
+      "DownStreamScheme": "https",
+      "DownStreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "44316"
+        }
+      ],
+      "UpstreamPathTemplate": "/Get",
+      "UpstreamHttpMethod": [ "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ProviderKey",
+        "AllowedScopes": []
+      },
+
+      "AddHeadersToRequest": {
+        "UserName": "Claims[UserName] > value > |"
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
+
+    }
+  ]
+
+}
